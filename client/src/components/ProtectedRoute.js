@@ -14,9 +14,9 @@ if theyre NOT logged in it will redirect them to the login component*/
 return(
     <Route {...rest} 
 
-    render={() => {
+    render={(props) => {
         if (isItIn) {
-            return <Component />
+            return <Component {...props}  />
         }
         else {
             return <Redirect to= "/login"/>

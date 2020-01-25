@@ -19,6 +19,7 @@ class Login extends React.Component {
     }
 
     loginIn = event => {
+        event.preventDefault()
         axios.post("http://localhost:5000/api/login", {
             username:this.state.credentials.username,
             password:this.state.credentials.password
@@ -28,8 +29,8 @@ class Login extends React.Component {
             this.props.history.push("/protected")
             
         })
-        .catch(error => console.log("Error", error))
-        event.preventDefault()
+        .catch(error => console.log("get Token failed", error))
+        
     }
 
     render() {

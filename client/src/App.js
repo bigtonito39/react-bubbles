@@ -14,13 +14,14 @@ function App() {
         <h1>Welcome to the Bubble App!</h1>
         </div>
       
-    <Link to="/login" className="nav">Login To See Bubbles!</Link>
+    <Link to="/login" className="nav">Login</Link>
+    <Link to="/protected">See bubbles</Link>
      
      
         <Switch>
         <ProtectedRoute exact path="/protected" component={BubblePage}/>
-        <Route exact path="/login" component={Login} />
-
+        <Route path="/login" component={Login} />
+        
         </Switch>
         
         {/* 
