@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import {GetTheToken} from "./GetTheToken"
 
 const initialColor = {
@@ -48,11 +47,12 @@ const ColorList = ({ colors, updateColors,handleEdits }) => {
   };
 
   const addColorHandler = e => {
-e.preventDefault()
+    //e.stopPropagation() is needed in this case so pages refreshes with the new value under colors and bubbles
+    e.stopPropagation();
     GetTheToken()
     .post(`/colors`,addColor )
     .then(res => {
-      console.log("coming from addColor", res)
+     console.log("coming from addColorHandler",res)
     })
     .catch(err => console.log("error coming from addColor", err))
     setAddColor(initialColor)

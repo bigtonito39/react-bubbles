@@ -11,13 +11,11 @@ const BubblePage = () => {
   // set that data to the colorList state property
 
   const[edited, setEdited] = useState(false);
+console.log(colorList)
+
   const handleEdits =(data)=> {
     
-    //To add new color
-    // setColorList([...colorList, data.data])
-
     setEdited(true)
-    
     
   }
 
@@ -25,11 +23,11 @@ const BubblePage = () => {
     GetTheToken()
       .get('/colors')
       .then(res => {
-      
-        setColorList(res.data);
+              setColorList(res.data);
       })
       .catch(err => console.log(err));
       setEdited(false)
+      
   }, [edited])
 
   return (
