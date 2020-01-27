@@ -25,7 +25,7 @@ const ColorList = ({ colors, updateColors,handleEdits }) => {
     // think about where will you get the id from...
     // where is is saved right now?
     GetTheToken()
-    .put(`/colors/:${colorToEdit}`,colorToEdit)
+    .put(`/colors/${colorToEdit.id}`,colorToEdit)
     .then(res => {
       handleEdits()
       console.log(res)
@@ -47,8 +47,7 @@ const ColorList = ({ colors, updateColors,handleEdits }) => {
   };
 
   const addColorHandler = e => {
-    //e.stopPropagation() is needed in this case so pages refreshes with the new value under colors and bubbles
-    e.stopPropagation();
+   //Don't prevent default here in this case, so pages reload with new colors added - Ask TL how can i make re render this without allowing the page having to refresh through not enabling preventDefault
     GetTheToken()
     .post(`/colors`,addColor )
     .then(res => {
@@ -123,7 +122,7 @@ const ColorList = ({ colors, updateColors,handleEdits }) => {
           />
         </label>
         <label>
-          color name:
+          hex code:
           <input 
           onChange={ e => setAddColor({...addColor,code: {hex: e.target.value}})}
           value={addColor.code.hex}
