@@ -10,15 +10,16 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <div>
-        <h1>Welcome to the Bubble App!</h1>
-        </div>
-      
+        <div className="nav-Links">
+    <Link to="/">Home</Link>
     <Link to="/login" className="nav">Login</Link>
     <Link to="/protected">See bubbles</Link>
+        </div>
+    
      
      
         <Switch>
+        <Route exact path="/"/>
         <ProtectedRoute exact path="/protected" component={BubblePage}/>
         <Route path="/login" component={Login} />
         

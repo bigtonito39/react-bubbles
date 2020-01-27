@@ -10,20 +10,31 @@ const BubblePage = () => {
   // fetch your colors data from the server when the component mounts
   // set that data to the colorList state property
 
+  const[edited, setEdited] = useState(false);
+  const handleEdits =(data)=> {
+    
+    //To add new color
+    // setColorList([...colorList, data.data])
+
+    setEdited(true)
+    
+    
+  }
+
   useEffect(() => {
     GetTheToken()
       .get('/colors')
       .then(res => {
-        console.log(res)
+      
         setColorList(res.data);
       })
       .catch(err => console.log(err));
-    
-  }, [])
+      setEdited(false)
+  }, [edited])
 
   return (
     <>
-      <ColorList colors={colorList} updateColors={setColorList} />
+      <ColorList colors={colorList} updateColors={setColorList} handleEdits={handleEdits}/>
       <Bubbles colors={colorList} />
     </>
   );
