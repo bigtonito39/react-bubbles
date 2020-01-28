@@ -22,5 +22,5 @@
     "express": "^4.16.2"
   },
      "scripts": {
-    "build": "[yarn] build --output public"}
+    "build": " yarn build --output public"}
 }
