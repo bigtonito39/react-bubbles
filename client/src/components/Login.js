@@ -25,6 +25,7 @@ class Login extends React.Component {
             password:this.state.credentials.password
         })
         .then(response => {
+            //we are passing the token here through response.data.payload to gain access
             localStorage.setItem("token", response.data.payload)
             this.props.history.push("/protected")
             
