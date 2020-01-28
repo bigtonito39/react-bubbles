@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route,Link, Switch } from "react-router-dom";
 import BubblePage from "./components/BubblePage";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 import Login from "./components/Login";
 import "./styles.scss";
@@ -12,7 +12,7 @@ function App() {
       <div className="App">
         <div className="nav-Links">
     <Link to="/">Home</Link>
-    <Link to="/login" className="nav">Login</Link>
+    <Link to="/login" >Login</Link>
     <Link to="/protected">See bubbles</Link>
         </div>
     

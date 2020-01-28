@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {GetTheToken} from "./GetTheToken"
+import {GetTheToken} from "../utils/GetTheToken"
 
 const initialColor = {
   color: "",
@@ -11,9 +11,10 @@ const ColorList = ({ colors, updateColors,handleEdits }) => {
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
   const [addColor,setAddColor] = useState(initialColor)
-  console.log(addColor)
+ 
   
   const editColor = color => {
+
     setEditing(true);
     setColorToEdit(color);
   };
@@ -28,7 +29,6 @@ const ColorList = ({ colors, updateColors,handleEdits }) => {
     .put(`/colors/${colorToEdit.id}`,colorToEdit)
     .then(res => {
       handleEdits()
-      console.log(res)
     })
     .catch(err => {console.log("error from ColorList", err)})
     
