@@ -47,14 +47,17 @@ const ColorList = ({ colors, updateColors,handleEdits }) => {
   };
 
   const addColorHandler = e => {
-   //Don't prevent default here in this case, so pages reload with new colors added - Ask TL how can i make re render this without allowing the page having to refresh through not enabling preventDefault
-    GetTheToken()
+   e.preventDefault();
+   
+   GetTheToken()
     .post(`/colors`,addColor )
     .then(res => {
      console.log("coming from addColorHandler",res)
     })
     .catch(err => console.log("error coming from addColor", err))
+    
     setAddColor(initialColor)
+    handleEdits()
     
   }
 

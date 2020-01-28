@@ -11,7 +11,6 @@ const BubblePage = () => {
   // set that data to the colorList state property
 
   const[edited, setEdited] = useState(false);
-console.log(colorList)
 
   const handleEdits =(data)=> {
     
